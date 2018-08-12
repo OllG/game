@@ -18,10 +18,8 @@ public class tester {
         Armor playerArmor = new LeatherArmor();
         Player player = new Tank(playerSword, playerArmor);
 
-        Weapon goblinSword = new GoblinSword();
-        Armor goblinArmor = new EmptyArmor();
-        Enemy goblin = new Goblin(goblinSword, goblinArmor);
+        GameManager gameManager = new GameManager();
+        gameManager.game(player);
 
-        GameManager.battle(player, goblin);
     }
 }
