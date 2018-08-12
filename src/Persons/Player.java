@@ -28,7 +28,7 @@ public /*abstract*/ class Player extends Person
 
     public int calcArmorPenetration(int armorPenetration) // DO POPRAWY
     {
-        return (super.getArmor() - (super.getArmor() * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
+        return (super.getArmor()+armorItem.getArmor() - (super.getArmor()+armorItem.getArmor() * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
     }
     public int getHp()
     {
