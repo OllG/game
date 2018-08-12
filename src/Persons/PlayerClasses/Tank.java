@@ -12,7 +12,7 @@ public class Tank extends Player
 
     public Tank(Weapon weapon, Armor armor)
     {
-        super(hp, basicArmor, attack, weapon, armor);
+        super(hp, basicArmor, attack, "Tank", weapon, armor);
     }
 
 }

@@ -17,7 +17,6 @@ public class GameManager
         {
             battle(player, randomEnemy());
         }
-        System.out.println(playerWonBattles);
     }
 
     public Enemy randomEnemy ()
@@ -30,17 +29,26 @@ public class GameManager
     {
         while (player.isAlive() && enemy.isAlive())
         {
-            player.attack(enemy);
-            System.out.println(enemy.getHp());
-            enemy.attack(player);
-            System.out.println(player.getHp());
+            System.out.println(enemy.toString()+ ": " +enemy.getHp());
+            System.out.println(player.toString() + ": " +player.getHp());
+
+            if(player.isAlive()) player.attack(enemy);
+            if(enemy.isAlive()) enemy.attack(player);
+
         }
-        if (!player.isAlive()) gameOver();
-        else playerWonBattles ++;
+        if (player.isAlive())
+        {
+            playerWonBattles ++;
+            System.out.println("Wygrałeś " + playerWonBattles + " bitw.");
+        }
+        else
+        {
+            gameOver();
+        }
     }
 
-    public static void gameOver ()
+    public void gameOver ()
     {
-        System.out.println("Przegrałeś!");
+        System.out.println("Przegrałeś po " + playerWonBattles + " rundzie." );
     }
 }

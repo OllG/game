@@ -11,9 +11,9 @@ public abstract class Player extends Person
     private Weapon weaponItem;
     private Armor armorItem;
 
-    public Player(int hp, int basicArmor, int attack, Weapon weaponItem, Armor armorItem)
+    public Player(int hp, int basicArmor, int attack, String name, Weapon weaponItem, Armor armorItem)
     {
-        super(hp, basicArmor, attack);
+        super(hp, basicArmor, attack, name);
         this.weaponItem = weaponItem;
         this.armorItem = armorItem;
     }
