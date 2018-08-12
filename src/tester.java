@@ -15,7 +15,7 @@ public class tester {
         Player player = new Tank(playerSword, playerArmor);
         System.out.println(player.getHp());
 
-        Enemy goblin = new Goblin(playerSword);
+        Enemy goblin = new Goblin(playerSword, playerArmor);
         goblin.attack(player);
         System.out.println(player.getHp());
 
