@@ -16,7 +16,7 @@ public abstract class HumanoidEnemy extends Enemy
     }
     public void attack(Person enemy)
     {
-        enemy.getHurt(super.getAttack()+weaponItem.getAttack(), weaponItem.getArmorPenetration());
+        enemy.getHurt(humanoidEnemyRandomAttack()+weaponItem.getAttack(), weaponItem.getArmorPenetration());
     }
 
 
@@ -28,5 +28,10 @@ public abstract class HumanoidEnemy extends Enemy
     public int calcArmorPenetration(int armorPenetration)
     {
         return ((super.getArmor()+armorItem.getArmor()) - ((super.getArmor()+armorItem.getArmor()) * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
+    }
+
+    private int humanoidEnemyRandomAttack ()
+    {
+        return (int)(Math.random()*0.4*super.getAttack()+super.getAttack()*0.8);
     }
 }
