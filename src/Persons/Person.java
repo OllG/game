@@ -5,20 +5,30 @@ public abstract class Person implements Attackable {
     private int hp;
     private int armor;
     private int attack;
-    private int armorPenetration;
+    private boolean isAlive;
 
     public Person(int hp, int armor, int attack)
     {
         this.hp = hp;
         this.armor = armor;
         this.attack = attack;
+        isAlive = true;
     }
 
 
     @Override
     public void getHurt(int amount, int armorPenetration)
     {
-            hp -= damageValue(amount, armorPenetration); //odejmuje z życia wartość obliczoną przez damageValue()
+        hp -= damageValue(amount, armorPenetration); //odejmuje z życia wartość obliczoną przez damageValue()
+        if (hp<0)
+        {
+            die();
+        }
+    }
+
+    public void die ()
+    {
+        isAlive = false;
     }
 
     //Metody do liczenia obrażeń
@@ -48,8 +58,9 @@ public abstract class Person implements Attackable {
         return armor;
     }
 
-    public int getArmorPenetration() {
-        return armorPenetration;
+    public boolean isAlive()
+    {
+        return isAlive;
     }
 }
 

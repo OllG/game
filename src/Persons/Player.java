@@ -4,7 +4,7 @@ package Persons;
 import Items.Armor;
 import Items.Weapon;
 
-public /*abstract*/ class Player extends Person
+public abstract class Player extends Person
 {
     private Weapon weaponItem;
     private Armor armorItem;
@@ -35,8 +35,4 @@ public /*abstract*/ class Player extends Person
         return super.getHp();
     }
 
-    public void die()
-    {
-        //GameManagaer.gameOver();
-    }
 }

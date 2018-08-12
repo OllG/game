@@ -1,3 +1,4 @@
+import GameManager.GameManager;
 import Items.Armor;
 import Items.Armors.LeatherArmor;
 import Items.Weapon;
@@ -16,11 +17,7 @@ public class tester {
         System.out.println(player.getHp());
 
         Enemy goblin = new Goblin(playerSword, playerArmor);
-        goblin.attack(player);
-        System.out.println(player.getHp());
 
-        System.out.println(goblin.getHp());
-        player.attack(goblin);
-        System.out.println(goblin.getHp());
+        GameManager.battle(player, goblin);
     }
 }

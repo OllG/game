@@ -7,8 +7,4 @@ public abstract class Enemy extends Person
         super(hp, armor, attack);
     }
 
-    public void die()
-    {
-
-    }
 }
