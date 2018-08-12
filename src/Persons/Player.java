@@ -4,6 +4,8 @@ package Persons;
 import Items.Armor;
 import Items.Weapon;
 
+import java.util.Random;
+
 public abstract class Player extends Person
 {
     private Weapon weaponItem;
@@ -18,21 +20,26 @@ public abstract class Player extends Person
 
     public void attack(Person enemy)
     {
-        enemy.getHurt(super.getAttack()+weaponItem.getAttack(), weaponItem.getArmorPenetration());
+        enemy.getHurt(playerRandomAttack() + weaponItem.getAttack(), weaponItem.getArmorPenetration());
     }
 
     public int damageValue(int amount, int armorPenetration)
     {
-        return (amount * (100 - (calcArmorPenetration(armorPenetration)))) / 100; // zwraca wartość ataku po uwzględnieniu pancerza i penetracji
+        return (amount * (100 - (calcArmorPenetration(armorPenetration)))) / 100; // zwraca ilość obrażń uwzględniając wynik calcArmorPenetration
     }
 
-    public int calcArmorPenetration(int armorPenetration) // DO POPRAWY
+    public int calcArmorPenetration(int armorPenetration) // Oblicza procent o jaki będą obniżone obrażenia po uwzględnieniu pól armor i armorPenetration
     {
         return (super.getArmor()+armorItem.getArmor() - (super.getArmor()+armorItem.getArmor() * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
     }
     public int getHp()
     {
         return super.getHp();
+    }
+
+    private int playerRandomAttack ()
+    {
+        return (int)(Math.random()*0.2*super.getAttack()+super.getAttack()*0.9);
     }
 
 }
