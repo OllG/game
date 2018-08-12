@@ -22,19 +22,7 @@ public abstract class Person implements Attackable {
     }
 
     //Metody do liczenia obrażeń
-    public int damageValue(int amount, int armorPenetration)
-    {
-        return (amount * (100 - (calcArmorPenetration(armorPenetration)))) / 100; // zwraca wartość ataku po uwzględnieniu pancerza i penetracji
-    }
 
-    public int calcArmorPenetration(int armorPenetration) // DO POPRAWY
-    {
-        return (armor - (armor * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
-    }
-    public int getHp()
-    {
-        return hp;
-    }
 
     public int getAttack()
     {
@@ -48,5 +36,20 @@ public abstract class Person implements Attackable {
     }
 
 
+    public String getName() {
+        return name;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public int getArmorPenetration() {
+        return armorPenetration;
+    }
 }
 

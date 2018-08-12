@@ -18,4 +18,15 @@ public abstract class HumanoidEnemy extends Enemy
     {
         enemy.getHurt(super.getAttack()+weaponItem.getAttack(), weaponItem.getArmorPenetration());
     }
+
+
+    public int damageValue(int amount, int armorPenetration)
+    {
+        return (amount * (100 - (calcArmorPenetration(armorPenetration)))) / 100; // zwraca wartość ataku po uwzględnieniu pancerza i penetracji
+    }
+
+    public int calcArmorPenetration(int armorPenetration) // DO POPRAWY
+    {
+        return (super.getArmor() - (super.getArmor() * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
+    }
 }

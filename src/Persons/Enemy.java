@@ -7,8 +7,8 @@ public abstract class Enemy extends Person
         super(hp, armor, attack);
     }
 
-    @Override
-    public void die() {
+    public void die()
+    {
 
     }
 }

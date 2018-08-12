@@ -10,6 +10,7 @@ public abstract class Armor extends Item
         this.armor = armor;
     }
 
-    public Armor() {
+    public int getArmor() {
+        return armor;
     }
 }

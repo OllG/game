@@ -16,13 +16,25 @@ public /*abstract*/ class Player extends Person
         this.armorItem = armorItem;
     }
 
-    /*@Override*/
     public void attack(Person enemy)
     {
         enemy.getHurt(super.getAttack()+weaponItem.getAttack(), weaponItem.getArmorPenetration());
     }
 
-    @Override
+    public int damageValue(int amount, int armorPenetration)
+    {
+        return (amount * (100 - (calcArmorPenetration(armorPenetration)))) / 100; // zwraca wartość ataku po uwzględnieniu pancerza i penetracji
+    }
+
+    public int calcArmorPenetration(int armorPenetration) // DO POPRAWY
+    {
+        return (super.getArmor() - (super.getArmor() * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
+    }
+    public int getHp()
+    {
+        return super.getHp();
+    }
+
     public void die()
     {
         //GameManagaer.gameOver();
