@@ -27,6 +27,6 @@ public abstract class HumanoidEnemy extends Enemy
 
     public int calcArmorPenetration(int armorPenetration) // DO POPRAWY
     {
-        return (super.getArmor() - (super.getArmor() * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
+        return ((super.getArmor()+armorItem.getArmor()) - ((super.getArmor()+armorItem.getArmor()) * armorPenetration) / 100); //oblicza o ile penetracja osłabi pancerz
     }
 }
