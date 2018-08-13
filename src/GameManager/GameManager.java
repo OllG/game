@@ -21,7 +21,7 @@ public class GameManager
 
     public Enemy randomEnemy ()
     {
-        return new Goblin();
+        return new Goblin(playerWonBattles);
     }
 
 
@@ -29,17 +29,15 @@ public class GameManager
     {
         while (player.isAlive() && enemy.isAlive())
         {
-            System.out.println(enemy.toString()+ ": " +enemy.getHp());
-            System.out.println(player.toString() + ": " +player.getHp());
-
             if(player.isAlive()) player.attack(enemy);
+            System.out.println(enemy.toString()+ ": " +enemy.getHp());
             if(enemy.isAlive()) enemy.attack(player);
+            System.out.println(player.toString() + ": " +player.getHp() + '\n');
 
         }
         if (player.isAlive())
         {
             playerWonBattles ++;
-            System.out.println("Wygrałeś " + playerWonBattles + " bitw.");
         }
         else
         {
@@ -49,6 +47,6 @@ public class GameManager
 
     public void gameOver ()
     {
-        System.out.println("Przegrałeś po " + playerWonBattles + " rundzie." );
+        System.out.println("Koniec gry.\nWygrałeś " + playerWonBattles + " rund." );
     }
 }

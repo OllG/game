@@ -8,9 +8,9 @@ public abstract class HumanoidEnemy extends Enemy
     private Weapon weaponItem;
     private Armor armorItem;
 
-    public HumanoidEnemy(int hp, int armor, int attack, String name, Weapon weaponItem, Armor armorItem)
+    public HumanoidEnemy(int hp, int armor, int attack, int level, String name, Weapon weaponItem, Armor armorItem)
     {
-        super(hp, armor, attack, name);
+        super(hp, armor, attack, level, name);
         this.weaponItem = weaponItem;
         this.armorItem = armorItem;
     }

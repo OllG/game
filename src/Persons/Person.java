@@ -5,15 +5,28 @@ public abstract class Person implements Attackable {
     private int hp;
     private int armor;
     private int attack;
+
+    private int level;
     private boolean isAlive;
 
-    public Person(int hp, int armor, int attack, String name)
+    public Person(int hp, int armor, int attack, int level, String name)
     {
-        this.hp = hp;
-        this.armor = armor;
-        this.attack = attack;
+        this.level = level;
+        this.hp = levelAdjustment(randomization(hp));
+        this.armor = levelAdjustment(randomization(armor));
+        this.attack = levelAdjustment(randomization(attack));
         this.name = name;
         isAlive = true;
+    }
+
+    private int randomization (int value)
+    {
+        return (int)(value*0.9 + (Math.random()*0.2*value));
+    }
+
+    private int levelAdjustment (int value)
+    {
+        return (int)(value+(level-1)/10*value);
     }
 
 
@@ -22,7 +35,7 @@ public abstract class Person implements Attackable {
     {
         hp -= damageValue(amount, armorPenetration); //odejmuje z życia wartość obliczoną przez damageValue()
         System.out.println(name + ": obrywam za " + damageValue(amount, armorPenetration));
-        if (hp<0)
+        if (hp<=0)
         {
             die();
         }
@@ -31,7 +44,7 @@ public abstract class Person implements Attackable {
     public void die ()
     {
         isAlive = false;
-        System.out.println(this.toString() + " Zginął");
+        System.out.println(this.toString() + " Zginął \n");
     }
 
     //Metody do liczenia obrażeń

@@ -16,9 +16,9 @@ public class Goblin extends HumanoidEnemy
     private Armor ARMORITEM;
 
 
-    public Goblin()
+    public Goblin(int level)
     {
-        super(randomGoblinHealth(), ARMOR, ATTACK, "Goblin", randomGoblinWeapon(), randomGoblinArmor());
+        super(HP, ARMOR, ATTACK, level, "Goblin", randomGoblinWeapon(), randomGoblinArmor());
     }
 
     private static Weapon randomGoblinWeapon ()
@@ -31,9 +31,5 @@ public class Goblin extends HumanoidEnemy
         return new EmptyArmor();
     }
 
-    private static int randomGoblinHealth ()
-    {
-        return (int) (HP*0.9 + HP*(Math.random())*0.2);
-    }
 
 }
